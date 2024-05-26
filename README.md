@@ -1,16 +1,58 @@
-# My Expo Project
+# Movie List App Setup
 
-This is a React Native project bootstrapped with [Expo](https://expo.dev/).
+This guide will help you set up and run the Movie List App, a React Native application that displays top-rated movies and allows users to filter by genre and search for movies.
 
-## Getting Started
+## Prerequisites
 
-Follow these instructions to get the project up and running on your local machine for development and testing purposes.
+Before you begin, ensure you have the following installed:
 
-### Prerequisites
+- Node.js (>= 12.x)
+- npm (>= 6.x)
+- Expo CLI (>= 4.x)
 
-Ensure you have the following installed on your machine:
+You can install Expo CLI globally using npm:
 
-- **Node.js**: You can download and install Node.js from [nodejs.org](https://nodejs.org/).
-- **Expo CLI**: Install Expo CLI globally by running:
-  ```sh
-  npm install -g expo-cli
+```bash
+npm install -g expo-cli
+``` 
+
+## Installation
+
+Clone the repository:
+```bash
+git clone <repository-url>
+cd MovieListApp
+```
+
+## Install dependencies
+
+```bash
+npm install
+```
+
+## Running the App
+Start the Expo development server:
+
+```bash
+npx expo start
+```
+## Run the app
+
+-Scan the QR code displayed in your terminal or browser using the Expo Go app on your Android or iOS device.
+-Alternatively, you can run the app on an emulator or simulator by selecting the appropriate option in the Expo CLI.
+
+## Project Structure
+
+```bash
+/src
+  /components
+    GenreFilter.tsx
+    MovieCard.tsx
+    MovieList.tsx
+  /screens
+    HomeScreen.tsx
+  /util
+    fetchCall.ts
+  /types
+    index.ts
+```
