@@ -14,7 +14,7 @@
     "paths": {
         "@env": ["./env.d.ts"]
     },
-    "include": ["src"],
+    "include": ["src", "App.tsx"],
     "exclude": ["node_modules"],
     "types": ["react-native"]
 }

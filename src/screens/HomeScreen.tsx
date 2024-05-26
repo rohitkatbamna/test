@@ -70,11 +70,13 @@ const HomeScreen: React.FC = () => {
 
     return (
         <View style={styles.container}>
-            <GenreFilter
-                genres={genres}
-                selectedGenre={selectedGenre}
-                onSelectGenre={setSelectedGenre}
-            />
+            <View style={styles.genreContainer}>
+                <GenreFilter
+                    genres={genres}
+                    selectedGenre={selectedGenre}
+                    onSelectGenre={setSelectedGenre}
+                />
+            </View>
             <FlatList
                 data={movies}
                 keyExtractor={(item) => item.id.toString()}
@@ -82,6 +84,7 @@ const HomeScreen: React.FC = () => {
                 onEndReached={handleEndReached}
                 onEndReachedThreshold={0.5}
                 ListFooterComponent={renderFooter}
+                style={styles.movieList}
             />
         </View>
     );
@@ -91,6 +94,13 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 10,
+    },
+    genreContainer: {
+        maxHeight: 200, // Adjust height as needed
+        marginBottom: 10,
+    },
+    movieList: {
+        flex: 1,
     },
     footer: {
         padding: 10,

@@ -1,6 +1,6 @@
 // src/components/GenreFilter.tsx
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { Text, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
 import { Genre } from '../types';
 
 interface GenreFilterProps {
@@ -11,23 +11,26 @@ interface GenreFilterProps {
 
 const GenreFilter: React.FC<GenreFilterProps> = ({ genres, selectedGenre, onSelectGenre }) => {
     return (
-        <View style={styles.genreFilter}>
-            {genres.map((genre) => (
-                <TouchableOpacity key={genre.id} onPress={() => onSelectGenre(genre.id)}>
-                    <Text style={selectedGenre === genre.id ? styles.selectedGenre : styles.genre}>
-                        {genre.name}
+        <FlatList
+            data={genres}
+            keyExtractor={(item) => item.id.toString()}
+            renderItem={({ item }) => (
+                <TouchableOpacity onPress={() => onSelectGenre(item.id)}>
+                    <Text style={selectedGenre === item.id ? styles.selectedGenre : styles.genre}>
+                        {item.name}
                     </Text>
                 </TouchableOpacity>
-            ))}
-        </View>
+            )}
+            style={styles.genreFilter}
+        />
     );
 };
-
 const styles = StyleSheet.create({
     genreFilter: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        marginBottom: 10,
+        maxHeight: 200, // Adjust height as needed
+    },
+    genreContainer: {
+        paddingBottom: 10,
     },
     genre: {
         margin: 5,

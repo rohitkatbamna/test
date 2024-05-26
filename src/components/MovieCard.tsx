@@ -1,3 +1,4 @@
+// src/components/MovieCard.tsx
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { Movie, Genre } from '../types';
