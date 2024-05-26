@@ -5,23 +5,39 @@ import { Genre } from '../types';
 
 interface GenreFilterProps {
     genres: Genre[];
-    selectedGenre: number | null;
-    onSelectGenre: (genreId: number | null) => void;
+    selectedGenre: number[] | null;
+    setSelectedGenre: React.Dispatch<React.SetStateAction<number[] | null>>;
 }
 
-const GenreFilter: React.FC<GenreFilterProps> = ({ genres, selectedGenre, onSelectGenre }) => {
+const GenreFilter: React.FC<GenreFilterProps> = ({ genres, selectedGenre, setSelectedGenre }) => {
     return (
         <FlatList
             data={genres}
             keyExtractor={(item) => item.id.toString()}
             renderItem={({ item }) => (
-                <TouchableOpacity onPress={() => onSelectGenre(item.id)}>
-                    <Text style={selectedGenre === item.id ? styles.selectedGenre : styles.genre}>
+                <TouchableOpacity
+                    onPress={() =>
+                        setSelectedGenre((prev) => {
+                            if (prev?.includes(item.id)) {
+                                return prev.filter((id) => id !== item.id);
+                            } else {
+                                return [...(prev || []), item.id];
+                            }
+                        })
+                    }
+                    style={styles.genreContainer}
+                >
+                    <Text
+                        style={
+                            selectedGenre?.includes(item.id) ? styles.selectedGenre : styles.genre
+                        }
+                    >
                         {item.name}
                     </Text>
                 </TouchableOpacity>
             )}
             style={styles.genreFilter}
+            horizontal={true}
         />
     );
 };
