@@ -20,7 +20,7 @@ npm install -g expo-cli
 
 Clone the repository:
 ```bash
-git clone [<repository-url>](https://github.com/rohitkatbamna/test.git)
+git clone https://github.com/rohitkatbamna/test.git
 cd MovieListApp
 ```
 
