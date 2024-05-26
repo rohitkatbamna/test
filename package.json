@@ -11,9 +11,8 @@
         "format": "prettier --write ."
     },
     "dependencies": {
-        "@react-native-community/masked-view": "^0.1.11",
-        "@react-navigation/native": "^6.1.17",
-        "@react-navigation/stack": "^6.3.29",
+        "@expo-google-fonts/archivo": "^0.2.3",
+        "@expo-google-fonts/saira": "^0.2.3",
         "expo": "~51.0.8",
         "expo-constants": "~16.0.1",
         "expo-status-bar": "~1.12.1",
