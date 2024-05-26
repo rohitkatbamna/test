@@ -1,3 +1,4 @@
+import { Alert } from 'react-native';
 import buildQueryString from './buildQueryString';
 import getApiKey from './getApiKey';
 import getBaseUrl from './getBaseUrl';
@@ -37,6 +38,7 @@ function fetchCall({
         })
         .catch((error: Error) => {
             console.error('Fetch error:', error);
+            Alert.alert('Error', 'Failed to fetch data');
             throw error;
         });
 }
