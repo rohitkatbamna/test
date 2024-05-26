@@ -21,7 +21,7 @@ npm install -g expo-cli
 Clone the repository:
 ```bash
 git clone https://github.com/rohitkatbamna/test.git
-cd MovieListApp
+cd test
 ```
 
 ## Install dependencies
